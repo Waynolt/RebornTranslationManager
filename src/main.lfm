@@ -1,0 +1,655 @@
+object Form1: TForm1
+  Left = 473
+  Height = 634
+  Top = 152
+  Width = 1252
+  Caption = 'TMR'
+  ClientHeight = 634
+  ClientWidth = 1252
+  KeyPreview = True
+  OnClose = FormClose
+  OnResize = FormResize
+  OnShow = FormShow
+  LCLVersion = '1.8.4.0'
+  object ScrollBox1: TScrollBox
+    Left = 0
+    Height = 639
+    Top = 0
+    Width = 1252
+    HorzScrollBar.Page = 1225
+    HorzScrollBar.Tracking = True
+    VertScrollBar.Page = 617
+    VertScrollBar.Tracking = True
+    ClientHeight = 635
+    ClientWidth = 1248
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Height = 15
+      Top = 8
+      Width = 60
+      Caption = 'Languages:'
+      ParentColor = False
+    end
+    object Button_Save: TButton
+      Left = 344
+      Height = 25
+      Top = 88
+      Width = 232
+      Caption = 'Save this translation'
+      OnClick = Button_SaveClick
+      TabOrder = 0
+    end
+    object Button_Load: TButton
+      Left = 344
+      Height = 25
+      Top = 56
+      Width = 116
+      Caption = 'Import translation'
+      OnClick = Button_LoadClick
+      TabOrder = 1
+    end
+    object LabeledEdit_LangName: TLabeledEdit
+      Left = 600
+      Height = 23
+      Top = 32
+      Width = 624
+      EditLabel.AnchorSideLeft.Control = LabeledEdit_LangName
+      EditLabel.AnchorSideRight.Control = LabeledEdit_LangName
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEdit_LangName
+      EditLabel.Left = 600
+      EditLabel.Height = 15
+      EditLabel.Top = 14
+      EditLabel.Width = 624
+      EditLabel.Caption = 'Language name:'
+      EditLabel.ParentColor = False
+      TabOrder = 2
+    end
+    object LabeledEdit_LangFile: TLabeledEdit
+      Left = 600
+      Height = 23
+      Top = 81
+      Width = 624
+      EditLabel.AnchorSideLeft.Control = LabeledEdit_LangFile
+      EditLabel.AnchorSideRight.Control = LabeledEdit_LangFile
+      EditLabel.AnchorSideRight.Side = asrBottom
+      EditLabel.AnchorSideBottom.Control = LabeledEdit_LangFile
+      EditLabel.Left = 600
+      EditLabel.Height = 15
+      EditLabel.Top = 63
+      EditLabel.Width = 624
+      EditLabel.Caption = 'File name:'
+      EditLabel.ParentColor = False
+      TabOrder = 3
+    end
+    object StringGrid_Languages: TStringGrid
+      Left = 16
+      Height = 100
+      Top = 24
+      Width = 296
+      AutoAdvance = aaNone
+      AutoEdit = False
+      ColCount = 2
+      DefaultColWidth = 148
+      FixedCols = 0
+      MouseWheelOption = mwGrid
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goSmoothScroll, goDontScrollPartCell]
+      ScrollBars = ssBoth
+      TabOrder = 4
+      OnAfterSelection = StringGrid_LanguagesAfterSelection
+    end
+    object Button_Delete: TButton
+      Left = 460
+      Height = 25
+      Top = 24
+      Width = 116
+      Caption = 'Delete translation'
+      OnClick = Button_DeleteClick
+      TabOrder = 5
+    end
+    object Label4: TLabel
+      Left = 344
+      Height = 15
+      Top = 120
+      Width = 417
+      Caption = 'Warning: selecting or creating another translation will discard unsaved changes'
+      ParentColor = False
+    end
+    object Button_New: TButton
+      Left = 344
+      Height = 25
+      Top = 24
+      Width = 116
+      Caption = 'Create translation'
+      OnClick = Button_NewClick
+      TabOrder = 6
+    end
+    object Shape_Separator: TShape
+      Left = 16
+      Height = 1
+      Top = 152
+      Width = 1209
+    end
+    object Button_Distribute: TButton
+      Left = 460
+      Height = 25
+      Top = 56
+      Width = 116
+      Caption = 'Pack translations'
+      OnClick = Button_DistributeClick
+      TabOrder = 7
+    end
+    object PageControl1: TPageControl
+      Left = 16
+      Height = 440
+      Top = 177
+      Width = 1209
+      TabStop = False
+      ActivePage = TabSheet_Groups
+      TabIndex = 0
+      TabOrder = 8
+      OnChange = PageControl1Change
+      Options = [nboKeyboardTabSwitch]
+      object TabSheet_Groups: TTabSheet
+        Caption = 'Groups'
+        ClientHeight = 412
+        ClientWidth = 1201
+        object Panel_Groups: TPanel
+          Left = 0
+          Height = 412
+          Top = 0
+          Width = 1201
+          BevelColor = clBtnFace
+          BevelOuter = bvNone
+          ClientHeight = 412
+          ClientWidth = 1201
+          Color = clBtnFace
+          ParentColor = False
+          TabOrder = 0
+          object TreeView_Groups: TTreeView
+            Left = 122
+            Height = 415
+            Top = 0
+            Width = 1080
+            AutoExpand = True
+            ReadOnly = True
+            TabOrder = 0
+            OnSelectionChanged = TreeView_GroupsSelectionChanged
+            Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+            Items.Data = {
+              F9FFFFFF020001000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000
+              00000011000000416C6C206C696E657320302D3933333937
+            }
+          end
+          object LabeledEdit_GroupName: TLabeledEdit
+            Left = 8
+            Height = 23
+            Top = 24
+            Width = 104
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_GroupName
+            EditLabel.AnchorSideRight.Control = LabeledEdit_GroupName
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_GroupName
+            EditLabel.Left = 8
+            EditLabel.Height = 15
+            EditLabel.Top = 6
+            EditLabel.Width = 104
+            EditLabel.Caption = 'Group name'
+            EditLabel.ParentColor = False
+            TabOrder = 1
+            OnChange = LabeledEdit_GroupEditingDone
+          end
+          object Button_GroupNew: TButton
+            Left = 8
+            Height = 25
+            Top = 206
+            Width = 104
+            Caption = 'Add group'
+            OnClick = Button_GroupNewClick
+            TabOrder = 2
+          end
+          object Button_GroupDelete: TButton
+            Left = 8
+            Height = 25
+            Top = 262
+            Width = 104
+            Caption = 'Delete group'
+            OnClick = Button_GroupDeleteClick
+            TabOrder = 3
+          end
+          object Button_GroupSub: TButton
+            Left = 8
+            Height = 25
+            Top = 230
+            Width = 104
+            Caption = 'Add subgroup'
+            OnClick = Button_GroupSubClick
+            TabOrder = 4
+          end
+          object LabeledEdit_GroupFrom: TLabeledEdit
+            Left = 8
+            Height = 23
+            Top = 72
+            Width = 80
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_GroupFrom
+            EditLabel.AnchorSideRight.Control = LabeledEdit_GroupFrom
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_GroupFrom
+            EditLabel.Left = 8
+            EditLabel.Height = 15
+            EditLabel.Top = 54
+            EditLabel.Width = 80
+            EditLabel.Caption = 'From line'
+            EditLabel.ParentColor = False
+            TabOrder = 5
+            OnChange = LabeledEdit_GroupEditingDone
+          end
+          object LabeledEdit_GroupTo: TLabeledEdit
+            Left = 8
+            Height = 23
+            Top = 120
+            Width = 80
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_GroupTo
+            EditLabel.AnchorSideRight.Control = LabeledEdit_GroupTo
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_GroupTo
+            EditLabel.Left = 8
+            EditLabel.Height = 15
+            EditLabel.Top = 102
+            EditLabel.Width = 80
+            EditLabel.Caption = 'To line'
+            EditLabel.ParentColor = False
+            TabOrder = 6
+            OnChange = LabeledEdit_GroupEditingDone
+          end
+          object CheckBox_GroupHidden: TCheckBox
+            Left = 8
+            Height = 19
+            Top = 152
+            Width = 59
+            Caption = 'Hidden'
+            Color = clBtnFace
+            OnChange = LabeledEdit_GroupEditingDone
+            ParentColor = False
+            TabOrder = 7
+          end
+          object Button_GroupUp: TButton
+            Left = 88
+            Height = 25
+            Top = 72
+            Width = 24
+            Caption = '^'
+            OnClick = Button_GroupUpClick
+            TabOrder = 8
+          end
+          object Button_GroupDown: TButton
+            Left = 88
+            Height = 25
+            Top = 120
+            Width = 24
+            Caption = 'v'
+            OnClick = Button_GroupDownClick
+            TabOrder = 9
+          end
+          object Button_GroupSave: TButton
+            Left = 8
+            Height = 25
+            Top = 296
+            Width = 104
+            Caption = 'Save groups'
+            OnClick = Button_GroupSaveClick
+            TabOrder = 10
+          end
+          object StaticText1: TStaticText
+            Left = 8
+            Height = 82
+            Top = 320
+            Width = 106
+            Caption = 'Select a group from the list to edit it, or to add same level or lower level groups, or etc.'
+            TabOrder = 11
+          end
+          object Button_GroupJumpTo: TButton
+            Left = 8
+            Height = 25
+            Top = 176
+            Width = 104
+            Caption = 'Jump to group'
+            OnClick = Button_GroupJumpToClick
+            TabOrder = 12
+          end
+        end
+      end
+      object TabSheet_Lines: TTabSheet
+        Caption = 'Lines'
+        ClientHeight = 412
+        ClientWidth = 1201
+        object Panel_Lines: TPanel
+          Left = 0
+          Height = 412
+          Top = 0
+          Width = 1201
+          BevelColor = clBtnFace
+          BevelOuter = bvNone
+          ClientHeight = 412
+          ClientWidth = 1201
+          Color = clBtnFace
+          ParentColor = False
+          TabOrder = 0
+          object StringGrid_Lines: TStringGrid
+            Left = 0
+            Height = 415
+            Top = 0
+            Width = 296
+            AutoAdvance = aaNone
+            AutoEdit = False
+            ColCount = 4
+            DefaultColWidth = 148
+            FixedCols = 0
+            MouseWheelOption = mwGrid
+            Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goSmoothScroll, goDontScrollPartCell]
+            RowCount = 1
+            ScrollBars = ssBoth
+            TabOrder = 0
+            OnAfterSelection = StringGrid_LinesAfterSelection
+            OnDrawCell = StringGrid_LinesDrawCell
+          end
+          object LabeledEdit_LineOrig: TLabeledEdit
+            Left = 304
+            Height = 23
+            Top = 24
+            Width = 872
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_LineOrig
+            EditLabel.AnchorSideRight.Control = LabeledEdit_LineOrig
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_LineOrig
+            EditLabel.Left = 304
+            EditLabel.Height = 15
+            EditLabel.Top = 6
+            EditLabel.Width = 872
+            EditLabel.Caption = 'Original line:'
+            EditLabel.ParentColor = False
+            ReadOnly = True
+            TabOrder = 1
+          end
+          object LabeledEdit_LineTransl: TLabeledEdit
+            Left = 304
+            Height = 23
+            Top = 80
+            Width = 872
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_LineTransl
+            EditLabel.AnchorSideRight.Control = LabeledEdit_LineTransl
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_LineTransl
+            EditLabel.Left = 304
+            EditLabel.Height = 15
+            EditLabel.Top = 62
+            EditLabel.Width = 872
+            EditLabel.Caption = 'Translated line:'
+            EditLabel.ParentColor = False
+            TabOrder = 2
+            OnEditingDone = LabeledEdit_LineTranslEditingDone
+            OnKeyUp = LabeledEdit_LineTranslKeyUp
+          end
+          object Label3: TLabel
+            Left = 304
+            Height = 15
+            Top = 200
+            Width = 26
+            Caption = 'Find:'
+            ParentColor = False
+          end
+          object RadioGroup_Find_Where: TRadioGroup
+            Left = 304
+            Height = 96
+            Top = 224
+            Width = 88
+            AutoFill = True
+            Caption = 'Where?'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 76
+            ClientWidth = 84
+            ItemIndex = 0
+            Items.Strings = (
+              'Original'
+              'Translated'
+              'Line'
+            )
+            TabOrder = 3
+          end
+          object RadioGroup_Find_Direction: TRadioGroup
+            Left = 416
+            Height = 96
+            Top = 224
+            Width = 112
+            AutoFill = True
+            Caption = 'Direction?'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 76
+            ClientWidth = 108
+            ItemIndex = 0
+            Items.Strings = (
+              'From the start'
+              'Next up'
+              'Next down'
+            )
+            TabOrder = 4
+          end
+          object Button_Find: TButton
+            Left = 552
+            Height = 25
+            Top = 295
+            Width = 152
+            Caption = 'Find'
+            OnClick = Button_FindClick
+            TabOrder = 5
+          end
+          object LabeledEdit_Find_What: TLabeledEdit
+            Left = 552
+            Height = 23
+            Top = 240
+            Width = 464
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_Find_What
+            EditLabel.AnchorSideRight.Control = LabeledEdit_Find_What
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_Find_What
+            EditLabel.Left = 552
+            EditLabel.Height = 15
+            EditLabel.Top = 222
+            EditLabel.Width = 464
+            EditLabel.Caption = 'What?'
+            EditLabel.ParentColor = False
+            TabOrder = 6
+          end
+          object CheckBox_Case: TCheckBox
+            Left = 312
+            Height = 19
+            Top = 352
+            Width = 93
+            Caption = 'Case sensitive'
+            TabOrder = 7
+          end
+          object CheckBox_SearchSize: TCheckBox
+            Left = 312
+            Height = 19
+            Top = 376
+            Width = 289
+            Caption = 'Do not include results bigger than the search query'
+            TabOrder = 8
+          end
+          object Button_ChangeAll: TButton
+            Left = 304
+            Height = 25
+            Top = 112
+            Width = 336
+            Caption = 'Find and update all of the lines with the same text as this one'
+            Enabled = False
+            OnClick = Button_ChangeAllClick
+            TabOrder = 9
+          end
+          object CheckBox_ChangeAll: TCheckBox
+            Left = 520
+            Height = 19
+            Top = 152
+            Width = 204
+            Caption = 'Always update all of the same lines'
+            Checked = True
+            OnChange = CheckBox_ChangeAllChange
+            State = cbChecked
+            TabOrder = 10
+          end
+          object CheckBox_ChangeAllIgnoreTransl: TCheckBox
+            Left = 752
+            Height = 19
+            Top = 152
+            Width = 234
+            Caption = 'Updating ignores already translated lines'
+            TabOrder = 11
+          end
+          object Shape_Separator2: TShape
+            Left = 304
+            Height = 1
+            Top = 184
+            Width = 872
+          end
+          object CheckBox_IgnoreTranslated: TCheckBox
+            Left = 312
+            Height = 19
+            Top = 328
+            Width = 136
+            Caption = 'Ignore translated lines'
+            TabOrder = 12
+          end
+          object CheckBox_ShowUntranslatedOnly: TCheckBox
+            Left = 304
+            Height = 19
+            Top = 152
+            Width = 172
+            Caption = 'Only show untranslated lines'
+            OnChange = CheckBox_ShowUntranslatedOnlyChange
+            TabOrder = 13
+          end
+          object LabeledEdit_Line: TLabeledEdit
+            Left = 656
+            Height = 23
+            Top = 114
+            Width = 152
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_Line
+            EditLabel.AnchorSideRight.Control = LabeledEdit_Line
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_Line
+            EditLabel.Left = 656
+            EditLabel.Height = 15
+            EditLabel.Top = 96
+            EditLabel.Width = 152
+            EditLabel.Caption = ' '
+            EditLabel.ParentColor = False
+            ReadOnly = True
+            TabOrder = 14
+          end
+          object LabeledEdit_Group: TLabeledEdit
+            Left = 816
+            Height = 23
+            Top = 114
+            Width = 360
+            EditLabel.AnchorSideLeft.Control = LabeledEdit_Group
+            EditLabel.AnchorSideRight.Control = LabeledEdit_Group
+            EditLabel.AnchorSideRight.Side = asrBottom
+            EditLabel.AnchorSideBottom.Control = LabeledEdit_Group
+            EditLabel.Left = 816
+            EditLabel.Height = 15
+            EditLabel.Top = 96
+            EditLabel.Width = 360
+            EditLabel.Caption = ' '
+            EditLabel.ParentColor = False
+            ReadOnly = True
+            TabOrder = 15
+          end
+        end
+      end
+    end
+  end
+  object ImageList1: TImageList
+    left = 1160
+    top = 120
+    Bitmap = {
+      4C690200000010000000100000008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFF4F4F4FFF4F4F4FFF4F4
+      F4FFF4F4F4FFF4F4F4FFF4F4F4FFF8F8F8FFF9F9F9FFF6F6F6FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFB9B3AEFFB9B3
+      AEFFB9B3AEFFB9B3AEFFD0CCC9FFC0A79DFFAB8677FFE4DFDCFFF5F5F5FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFD5CFCBFFD5CF
+      CBFFD5CFCBFFD6D0CCFFF1EEEDFF9D6A57FF925A44FFD0BFB9FFF6F6F6FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFD5CFCBFFD5CF
+      CBFFD6D1CDFFE6E2E0FFCFB8AFFF925A45FFA57765FFE8E7E7FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFDDD9D5FFE5E2
+      DFFFDCD8D5FFF4F3F2FFA1715EFF945C47FFD6C3BCFFDCDCDBFFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFCDC9C5FFDDCFC9FFC8AE
+      A3FFEEEEEDFFD5C1BAFF965E49FFA57664FFF8F8F8FFD6D5D5FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFE1E0DEFFAA7F6EFF945C
+      47FFE2D4CFFFA77867FF97604BFFD5BFB7FFF6F6F6FFDEDDDCFFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFD1CFCDFFE9E1DEFF955D
+      48FF965F49FF97604BFFA47361FFFAF9F8FFF4F4F4FFE2E2E1FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFCAC8C6FFF0ECEAFFBB99
+      8BFF975F4AFF98614CFFD1B9B0FFF9F9F9FFF6F6F6FFE6E6E6FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFCCCBCAFFDBDADAFFE9E2
+      DFFFBA998CFFBD9D90FFF6F3F2FFEDEDECFFECEBEBFFEAE9E9FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFF4F4F4FFF4F4F4FFF5F5
+      F5FFF9F9F9FFF8F8F8FFF5F5F5FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFF4F4F4FFF4F4F4FFF4F4
+      F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFB9B3AEFFB9B3
+      AEFFB9B3AEFFB9B3AEFFB9B3AEFFBAB4AFFFBDB9B4FFC1BEBBFFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFD5CFCBFFD5CF
+      CBFFD5CFCBFFD5CFCBFFD8D3D0FFDCD8D5FFDFDDDBFFC5C3C1FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFD5CFCBFFD5CF
+      CBFFD6D1CDFFDAD5D2FFDEDBD8FFE1DFDDFFE4E3E2FFC8C7C6FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFB9B3AEFFD7D1CDFFD9D4
+      D0FFDBD7D4FFDFDDDBFFE3E2E1FFE6E6E5FFE8E8E8FFCDCDCCFFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFBCB7B2FFDCD8D5FFDFDC
+      DAFFE3E1E0FFE8E8E8FFECECECFFEDEDEDFFEDEDEDFFD6D5D4FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFBFBBB8FFE1DFDDFFE5E5
+      E4FFEAEAEAFFEFEFEFFFF2F2F2FFF2F2F2FFF2F2F2FFDEDDDCFFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFC2BFBCFFE5E4E3FFE9E9
+      E9FFEDEDEDFFF2F2F2FFF4F4F4FFF5F5F5FFF4F4F4FFE2E2E1FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFC6C4C2FFE9E9E9FFEDED
+      EDFFF0F0F0FFF4F4F4FFF6F6F6FFF6F6F6FFF6F6F6FFE6E6E6FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFCCCBCAFFD5D4D4FFDCDB
+      DBFFE1E1E0FFE7E7E6FFEBEBEAFFECECEBFFECEBEBFFEAE9E9FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E00F4F4F4FFF4F4F4FFF4F4F4FFF4F4
+      F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FFF4F4F4FF8F8F
+      8E000000000000000000000000008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F8E008F8F
+      8E00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000
+    }
+  end
+end
